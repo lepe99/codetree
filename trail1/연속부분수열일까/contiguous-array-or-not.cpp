@@ -14,7 +14,7 @@ int main() {
         cin >> b[i];
     }
     bool flag = 0;
-    for (int i = 0; i < n1; i++) {
+    for (int i = 0; i + n2 <= n1; i++) {
         if (flag) break;
         if (a[i] == b[0]) {
             flag = 1;
@@ -28,5 +28,6 @@ int main() {
     }
 
     cout << (flag ? "Yes" : "No");
+    delete[] a, b;
     return 0;
 }
