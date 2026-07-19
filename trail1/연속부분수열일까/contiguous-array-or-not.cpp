@@ -28,6 +28,7 @@ int main() {
     }
 
     cout << (flag ? "Yes" : "No");
-    delete[] a, b;
+    delete[] a;
+    delete[] b;
     return 0;
 }
