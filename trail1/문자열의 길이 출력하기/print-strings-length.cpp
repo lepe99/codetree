@@ -7,8 +7,8 @@ int main() {
     cin >> a >> b;
 
     int l = 0, m = 0;
-    while (a[++l]);
-    while (b[++m]);
+    while (a[l]) l++;
+    while (b[m]) m++;
     cout << l + m;
     return 0;
 }
