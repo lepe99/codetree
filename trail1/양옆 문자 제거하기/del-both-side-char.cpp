@@ -4,12 +4,9 @@ using namespace std;
 void pop(char s[], int t) {
     int len{};
     while(s[len]) ++len;
-    if (t < 0) t = len - 2;
-    int idx{-1};
-    for (int i = 0; s[i]; i++) {
-        if (t <= i) {
+    if (t < 0) t += len;
+    for (int i = t; s[i]; i++) {
             s[i] = s[i + 1];
-        }
     }
 }
 
