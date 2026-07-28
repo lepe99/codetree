@@ -3,8 +3,7 @@ using namespace std;
 
 int stoi(char s[]) {
     int res{};
-    res = s[0] - '0';
-    for (int i = 1; s[i]; i++) {
+    for (int i = 0; s[i]; i++) {
         res = res * 10 + (s[i] - '0');
     }
     return res;
