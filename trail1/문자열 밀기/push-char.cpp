@@ -11,7 +11,7 @@ int main() {
         len++;
     }
     a[len - 1] = temp;
-    a[len] = '\0';
+    // a[len] = '\0';
     cout << a;
 
     return 0;
