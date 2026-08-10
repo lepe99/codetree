@@ -9,7 +9,7 @@ int main() {
     cin >> str;
     // Please write your code here.
     int a[26]{};
-    for (int i = 0; i < str[i]; i++) {
+    for (int i = 0; str[i]; i++) {
         a[str[i] - 'a']++;
     }
     for (int i = 0; i < 26; i++) {
