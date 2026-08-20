@@ -12,7 +12,7 @@ int n, m;
 S heap[MAX + 1];
 int hs;
 
-bool cmp(S &s1, S &s2) {
+bool cmp(const S &s1, const S &s2) {
     if (s1.sum == s2.sum) {
         return s1.x < s2.x;
     } else return s1.sum < s2.sum;
