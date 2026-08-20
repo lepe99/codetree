@@ -5,6 +5,7 @@ using namespace std;
 struct S {
     int x;
     int y;
+    int sum;
 };
 
 int n, m;
@@ -12,9 +13,9 @@ S heap[MAX + 1];
 int hs;
 
 bool cmp(S s1, S s2) {
-    if (s1.x + s1.y == s2.x + s2.y) {
-        return s1.x <= s2.x;
-    } else return s1.x + s1.y <= s2.x + s2.y;
+    if (s1.sum == s2.sum) {
+        return s1.x < s2.x;
+    } else return s1.sum < s2.sum;
 }
 
 void swap(S &s1, S &s2) {
@@ -56,6 +57,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         S s;
         cin >> s.x >> s.y;
+        s.sum = s.x + s.y;
         push(s);
     }
 
@@ -63,6 +65,7 @@ int main() {
         S s = pop();
         s.x += 2;
         s.y += 2;
+        s.sum += 4;
         push(s);
     }
 
