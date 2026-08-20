@@ -41,8 +41,8 @@ S pop() {
     int cur = 1;
     while (true) {
         int left = cur * 2, right = cur * 2 + 1, next = cur;
-        if (left <= hs && !cmp(heap[next], heap[left])) next = left;
-        if (right <= hs && !cmp(heap[next], heap[right])) next = right;
+        if (left <= hs && cmp(heap[left], heap[next])) next = left;
+        if (right <= hs && cmp(heap[right], heap[next])) next = right;
         if (next == cur) break;
         swap(heap[next], heap[cur]);
         cur = next;
