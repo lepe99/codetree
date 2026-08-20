@@ -44,7 +44,7 @@ S pop() {
         if (right <= hs && !cmp(heap[next], heap[right])) next = right;
         if (next == cur) break;
         swap(heap[next], heap[cur]);
-        next = cur;
+        cur = next;
     }
     return res;
 }
