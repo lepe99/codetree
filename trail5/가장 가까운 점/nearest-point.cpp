@@ -29,7 +29,7 @@ void push(S x) {
     int cur = hs;
     while(cur > 1) {
         int parent = cur / 2;
-        if (cmp(heap[parent], heap[cur])) break;
+        if (!cmp(heap[cur], heap[parent])) break;
         swap(heap[parent], heap[cur]);
         cur = parent;
     }   
