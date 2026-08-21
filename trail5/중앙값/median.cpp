@@ -1,11 +1,13 @@
 #include <iostream>
-// left 는 최대 힙, right 는 최소 힙, 두 힙 사용
+#define MAX 100000
 using namespace std;
 
 int t;
 int m;
-int lh[50001], rh[50001];
+int lh[MAX / 2 + 1], rh[MAX / 2 + 1];
 int ls, rs;
+const bool MAX_HEAP = 0;
+const bool MIN_HEAP = 1;
 
 void swap(int &a, int &b) {
     int temp = a;
@@ -56,19 +58,18 @@ int main() {
         for (int j = 0; j < m; j++) {
             int x;
             cin >> x;
-            if (ls == 0 || x <= lh[1]) push(lh, ls, x, 0);
-            else push(rh, rs, x, 1);
+            if (ls == 0 || x <= lh[1]) push(lh, ls, x, MAX_HEAP);
+            else push(rh, rs, x, MIN_HEAP);
             if (ls > rs + 1) {
-                int p = pop(lh, ls, 0);
-                push(rh, rs, p, 1);
+                int p = pop(lh, ls, MAX_HEAP);
+                push(rh, rs, p, MIN_HEAP);
             } else if (ls < rs) {
-                int p = pop(rh, rs, 1);
-                push(lh, ls, p, 0);
+                int p = pop(rh, rs, MIN_HEAP);
+                push(lh, ls, p, MAX_HEAP);
             }
             if (j % 2 == 0) cout << lh[1] << ' ';
         }
         cout << '\n';
     }
-
     return 0;
 }
