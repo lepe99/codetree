@@ -74,8 +74,6 @@ void mergeSort(int* a, int left, int right) {
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
     cin >> n >> m >> k;
 
     for (int i = 0; i < n; i++) {
