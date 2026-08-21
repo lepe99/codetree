@@ -11,7 +11,7 @@ int n, m, k;
 int arr1[100000];
 int arr2[100000];
 int temp[100000];
-S heap[100000];
+S heap[100001];
 int hs = 0;
 
 bool cmp(const int &a, const int &b) {
@@ -96,8 +96,11 @@ int main() {
     }
     for (int i = 1; i <= k; i++) {
         S s = pop();
-        if (i == k) cout << s.val;
-        s.pm += 1;
+        if (i == k) {
+            cout << s.val;
+            break;
+        }
+        s.pm++;
         s.val = arr1[s.pn] + arr2[s.pm];
         push(s);
     }
