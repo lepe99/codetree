@@ -51,6 +51,8 @@ int pop(int* heap, int &hs, bool reversed) {
 }
 
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
     cin >> t;
     for (int i = 0; i < t; i++) {
         ls = 0, rs = 0;
