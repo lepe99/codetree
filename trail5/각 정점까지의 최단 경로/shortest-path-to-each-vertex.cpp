@@ -107,7 +107,7 @@ int main() {
     // Please write your code here.
     dijkstra(k);
     for (int i = 1; i <= n; i++) {
-        std::cout << (dist[i] == INF ? -1 : dist[i]) << std::endl;
+        std::cout << (dist[i] == INF ? -1 : dist[i]) << '\n';
     }
     return 0;
 }
