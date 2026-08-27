@@ -114,12 +114,12 @@ int main() {
     int pos = A;
     std::cout << pos << ' ';
     while (pos != B) {
-        int min = 1 << 30;
+        int min = -1;
         for (int i = head[pos]; i != -1; i = edge[i].next) {
             int v = edge[i].to;
             int w = edge[i].weight;
             if (dist[pos] == dist[v] + w) {
-                if (min > v) min = v;
+                if (min == -1 || min > v) min = v;
             }
         }
         pos = min;
