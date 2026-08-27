@@ -68,7 +68,6 @@ Node pop() {
 }
 
 void init() {
-    int ns = 0;
     for (int i = 1; i <= n; i++) {
         dist[i] = INF;
         head[i] = -1;
