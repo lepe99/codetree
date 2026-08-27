@@ -7,15 +7,23 @@ struct Node {
     long long dist;
 };
 
+struct Edge {
+    int to;
+    int weight;
+    int next;
+};
+
 constexpr long long INF = 1LL << 62;
 
 int n, m;
 int from, to, weight;
 int A, B;
 
+Edge edge[2 * MAXM];
+int es;
+int head[MAXN + 1];
 Node node[MAXM + 1];
 int ns;
-int adj[MAXN + 1][MAXN + 1];
 long long dist[MAXN + 1];
 int path[MAXN + 1];
 
@@ -26,9 +34,16 @@ void swap(T &a, T &b) {
     b = temp;
 }
 
+void addEdge(int u, int v, int w) {
+    edge[es].to = v;
+    edge[es].weight = w;
+    edge[es].next = head[u];
+    head[u] = es++;
+}
+
 void init() {
     for (int i = 1; i <= n; i++) {
-        for (int j = 1; j <= n; j++) adj[i][j] = 0;
+        head[i] = -1;
         dist[i] = INF;
         path[i] = -1;
     }
@@ -70,10 +85,9 @@ void dijkstra(int start) {
         int u = cur.vertex;
         long long d = cur.dist;
         if (d != dist[u]) continue;
-        for (int i = 1; i <= n; i++) {
-            if (adj[u][i] == 0) continue;
-            int v = i;
-            int w = adj[u][i];
+        for (int i = head[u]; i != -1; i = edge[i].next) {
+            int v = edge[i].to;
+            int w = edge[i].weight;
             long long alt = w + d;
             if (alt < dist[v]) {
                 path[v] = u;
@@ -91,8 +105,8 @@ int main() {
     init();
     for (int i = 0; i < m; i++) {
         std::cin >> from >> to >> weight;
-        adj[from][to] = weight;
-        adj[to][from] = weight;
+        addEdge(from, to, weight);
+        addEdge(to, from, weight);
     }
 
     std::cin >> A >> B;
