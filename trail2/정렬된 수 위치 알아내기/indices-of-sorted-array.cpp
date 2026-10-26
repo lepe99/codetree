@@ -43,11 +43,10 @@ int main() {
     // Please write your code here.
     mergeSort(1, N);
     for (int i = 1; i <= N; i++) {
-        for (int j = 1; j <= N; j++) {
-            if (seq[j].ogi == i) {
-                printf("%d ", j);
-            }
-        }
+        ans[seq[i].ogi] = i;
+    }
+    for (int i = 1; i <= N; i++) {
+        printf("%d ", ans[i]);
     }
     return 0;
 }
